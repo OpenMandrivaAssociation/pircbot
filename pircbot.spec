@@ -77,3 +77,11 @@ ln -s %{name}-%{version} $RPM_BUILD_ROOT%_javadocdir/%{name}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+
+
+%changelog
+* Fri May 07 2010 Jonathan Bayle <mrhide@mandriva.org> 1.5.0-1mdv2011.0
++ Revision: 543074
+- import pircbot
+
+

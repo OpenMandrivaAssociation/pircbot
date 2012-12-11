@@ -1,0 +1,40 @@
+<project name="pircbot" default="all" basedir=".">
+
+	<property name="builddir" value="bin" />
+	<property name="srcdir" value="src" />
+	<property name="distdir" value="dist" />
+	<property name="docdir" value="javadoc" />
+	<property name="ver" value="1.5.0" />
+
+	<target name="prepare" description="Unpack jar file">
+		<mkdir dir="${srcdir}" taskname="initialiazing source directory" />
+		<unzip src="pircbot.jar" dest="${srcdir}" />
+	</target>
+	
+	<target name="clean" description="remobe all binaries">
+		<delete>
+			<fileset dir="${srcdir}" includes="**/*.class*"/>
+		</delete>
+	</target>
+	
+	<target name="build" description="build java files">
+		<mkdir dir="${builddir}" taskname="initialiazing build directory" />
+		<javac srcdir="${srcdir}" destdir="${builddir}"/>
+	</target>
+	
+	<target name="jar" description="make jar file">
+		<mkdir dir="${distdir}" taskname="initialiazing dist directory" />
+		<jar destfile="${distdir}/pircbot-${ver}.jar" basedir="${builddir}" compress="true" index="true" />
+	</target>
+	
+	<target name="all" description="rebuild project" depends="prepare,clean,build,jar"></target>
+	
+	<target name="javadoc" description="create the javadoc">
+		<mkdir dir="${docdir}" taskname="initialiazing javadoc directory" />
+		<javadoc sourcepath="src" destdir="${docdir}" author="true" version="true" use="true" windowtitle="PircBot ${ver} - Java IRC API Bot Framework">
+			<doctitle><![CDATA[<h1>PircBot - Java IRC API Bot Framework</h1>]]></doctitle>
+			<bottom><![CDATA[<i>PircBot Java IRC Bot.</i>]]></bottom>
+			<link href="http://www.jibble.org/pircbot.php"/>
+		</javadoc>
+	</target>
+</project>
