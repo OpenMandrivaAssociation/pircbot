@@ -1,6 +1,6 @@
 %define name	pircbot
 %define version	1.5.0
-%define release	%mkrel 1
+%define release	2
 
 Name:		%{name}
 Summary:	Java IRC API
