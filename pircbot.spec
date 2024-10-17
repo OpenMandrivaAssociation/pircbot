@@ -8,7 +8,7 @@ Version:	%{version}
 Release:	%{release} 
 Source0:	http://www.jibble.org/files/pircbot-1.5.0.zip
 Source1:	pircbot.xml
-URL:		http://www.jibble.org/pircbot.php
+URL:		https://www.jibble.org/pircbot.php
 
 Group:		Development/Java
 License:        GPLv2
